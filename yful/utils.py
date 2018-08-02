@@ -11,9 +11,10 @@ import configparser
 
 
 if os.name == 'posix' and sys.version_info[0] < 3:
-    import subprocess32 as subprocess
-else:
-    import subprocess
+    try:
+        import subprocess32 as subprocess
+    except ImportError as e:
+        import subprocess
 
 
 def get_abs(path):
