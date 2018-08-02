@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+from __future__ import print_function
+import argparse
+from yful import proc, cat_rc_utils
+
+
+def get_args():
+    ap = argparse.ArgumentParser(description='description')
+    ap.add_argument('--ref-genome', help='reference genome')
+    # ap.add_argument('--sample-name', help='sample label')
+    ap.add_argument('--threads', help='thread number')
+    ap.add_argument('--java-memory', help='memory supply, like "4g, 512m"')
+    # ap.add_argument('sub', nargs='?', help='sub')
+    ap.add_argument('-p', '--prefix', help='out prefix, default "1"', default='1')
+    # ap.add_argument('-r', '--rename', help='False default', action="store_true")
+    # ap.add_argument('r1', help='read 1')
+    # ap.add_argument('r2', help='read 2')
+    ap.add_argument('list', help='data list, one pair per line, like "sample_name\tr1.fastq\tr2.fastq, sep with tab"')
+    ap.add_argument('--interval', help='target region, bed format')
+    ap.add_argument('--config', help='config file, for example examples/yful.cfg within the package')
+    return ap.parse_args()
+
+
+
+def main():
+    args = get_args()
+    print(args)
+    if args.config:
+        cat_rc_utils(args.config)
+    cmd = ['yful.sh']
+    if args.interval:
+        cmd.extend(['-i', args.interval])
+    cmd.extend(['-p', args.prefix, args.list])
+    print(cmd)
+    proc(cmd)
+
+
+if __name__ == '__main__':
+    main()
