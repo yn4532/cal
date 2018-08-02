@@ -42,7 +42,7 @@ reads_seq_1=$1
 reads_seq_2=$2
 
 echo; echo; echo start bwa mem ...
-$bwa mem -M -t${threads:=4} `opt -k $kmer_size` -R $read_group $ref_genome \
+bwa mem -M -t${threads:=4} `opt -k $kmer_size` -R $read_group $ref_genome \
 $reads_seq_1 \
 $reads_seq_2 | samtools view -b -@$threads - > $out_prefix.bam
 
