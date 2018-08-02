@@ -19,6 +19,7 @@ if os.name == 'posix' and sys.version_info[0] < 3:
 
 def get_abs(path):
     p = os.path.expanduser(path)
+    p = os.path.expandvars(p)
     return os.path.abspath(p)
 
 
