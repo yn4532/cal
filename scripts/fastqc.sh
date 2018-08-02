@@ -22,7 +22,7 @@ if [ -z "$1" ]; then info; fi
 
 . $var
 
-threads={threads:=4}
+threads=${threads:=4}
 
 base=`basename $1 .gz`
 # prefix=`echo $base|rev|cut -f2 -d.|rev`
