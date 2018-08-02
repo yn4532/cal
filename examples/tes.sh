@@ -22,6 +22,8 @@ if [ $# -lt 1 ]; then info; fi
 
 echo $ref_genome
 
+echo ~
+
 echo test
 get_abs abc
 
