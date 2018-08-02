@@ -33,7 +33,6 @@ setup(
     include_package_data=True,
     platforms=["Linux", "Mac OS-X", "Unix"],
     install_requires=['argparse',
-                      'configparser',
-                      'subprocess32'],
+                      'configparser'],
     scripts=scripts,
 )
