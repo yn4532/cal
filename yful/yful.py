@@ -12,7 +12,7 @@ def get_rc():
 
 
 def format_java_run(mem='12g', tmp_dir='tmp'):
-    return '"java -Djava.io.tmpdir=%s -Xmx%s"' % (tmp_dir, mem)
+    return 'java -Djava.io.tmpdir=%s -Xmx%s' % (tmp_dir, mem)
 
 
 def format_config(ini_file):
