@@ -26,7 +26,7 @@ if [ -z $out_prefix ]; then
 fi
 
 echo;echo;echo gatk summary
-$gatk \
+java.sh -m$java_memory -d$java_tmp_dir $gatk \
    -T DepthOfCoverage \
    -R $ref_genome \
    -o $out_prefix \

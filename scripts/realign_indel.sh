@@ -28,7 +28,7 @@ vcf_path=${data_path}/vcf/gatk/
 if [ -n "$interval" ]; then interval="-L $interval"; fi
 
 echo; echo gatk RealignerTargetCreator recommand nt 24 mem 48
-java $j_mem -jar $gatk \
+$jar_run $gatk \
     -T RealignerTargetCreator \
     -R $ref_genome $interval\
     -I $1 \

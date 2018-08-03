@@ -11,8 +11,9 @@ def get_rc():
     return get_abs('~/.config/yfulrc')
 
 
-def format_java_run(mem='12g', tmp_dir='tmp'):
-    return 'java -Djava.io.tmpdir=%s -Xmx%s' % (tmp_dir, mem)
+def format_jar_run(mem='12g', tmp_dir='tmp'):
+    # return 'java -Djava.io.tmpdir=%s -Xmx%s' % (tmp_dir, mem)
+    return 'java.sh -d%s -m%s' % (tmp_dir, mem)
 
 
 def format_config(ini_file):
@@ -25,7 +26,7 @@ def format_config(ini_file):
     mem = conf['java_memery']
     tmp = conf['java_tmp_dir']
     java_run = format_java_run(mem, tmp)
-    conf['java_run'] = java_run
+    conf['jar_run'] = java_run
     with open(rf_file, 'wb') as f:
         for k, v in conf.items():
             # v = get_abs(v)

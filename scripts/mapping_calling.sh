@@ -48,7 +48,7 @@ deldup.sh -p$out_prefix $out_prefix.filter.bam
 samtools flagstat $out_prefix.deldup.bam > $out_prefix.deldup.bamstat.txt
 
 
-realign_bam.sh -p$out_prefix -i$interval $out_prefix.deldup.bam
+realign_indel.sh -p$out_prefix -i$interval $out_prefix.deldup.bam
 
 
 bqsr.sh -l$bed -p$out_prefix $out_prefix.realn.bam

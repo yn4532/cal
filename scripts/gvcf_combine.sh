@@ -27,7 +27,7 @@ test -n "$interval" && interval='-L $interval'
 # CombineGVCFs # run CombineGVCFs on batches of ~200 gVCFs to hierarchically merge them into a single gVCF
 
 echo; echo CombineGVCFs
-$gatk \
+java.sh -m$java_memory -d$java_tmp_dir $gatk \
     -R $ref_genome \
     -T CombineGVCFs $interval \
     --variant $list \

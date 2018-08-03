@@ -25,7 +25,7 @@ test -n "$interval" && interval='-L $interval'
 # HaplotypeCaller # its use is not recommended for somatic (cancer) variant discovery. For that purpose, use MuTect2 instead.
 
 echo; echo HaplotypeCaller
-$gatk \
+java.sh -m$java_memory -d$java_tmp_dir $gatk \
     -R $ref_genome \
     -T HaplotypeCaller \
     -I $1 \
