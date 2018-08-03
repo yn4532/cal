@@ -26,16 +26,19 @@ def format_indel_std(ini_file, indel_realign='indel_realignment'):
 
 def format_bqsr(ini_file, bqsr='bqsr'):
     config = get_config(ini_file)
-    bqsr_std = config[bqsr]
-    bqsr_std = ['-known %s' % i for i in bqsr_std]
+    bqsr_std = config[bqsr].values()
+    bqsr_std = ['-knownSites %s' % i for i in bqsr_std]
     bqsr_std = ' '.join(bqsr_std)
     return bqsr_std
 
 
 def format_config(ini_file):
+    general_label = 'general'
     rf_file = get_rc()
     conf = get_config(ini_file)
-    conf = conf.defaults()
+    # conf = conf.defaults()
+    conf = conf[general_label]
+    conf = dict(conf)
     print(conf)
     # mem = conf.pop('java_memery')
     # tmp = conf.pop('java_tmp_dir')
