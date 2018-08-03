@@ -20,8 +20,10 @@ def format_config(ini_file):
     conf = get_config(ini_file)
     conf = conf.defaults()
     print(conf)
-    mem = conf.pop('java_memery')
-    tmp = conf.pop('java_tmp_dir')
+    # mem = conf.pop('java_memery')
+    # tmp = conf.pop('java_tmp_dir')
+    mem = conf['java_memery']
+    tmp = conf['java_tmp_dir']
     java_run = format_java_run(mem, tmp)
     conf['java_run'] = java_run
     with open(rf_file, 'wb') as f:

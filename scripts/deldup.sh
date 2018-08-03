@@ -27,7 +27,7 @@ if [ $# -lt 1 ]; then info; fi
 test "$delete" = "true" && delete='REMOVE_DUPLICATES=true'
 
 echo;echo;echo picard MarkDuplicates
-$java_run/picard/MarkDuplicates.jar \
+java.sh -m12g $picard_path/MarkDuplicates.jar \
 I=$1 \
 O=$out_prefix.deldup.bam \
 METRICS_FILE=$out_prefix.deldup.metrics.txt \
