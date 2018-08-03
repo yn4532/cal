@@ -16,6 +16,22 @@ def format_java_run(mem='12g', tmp_dir='tmp'):
     return 'java.sh -d%s -m%s' % (tmp_dir, mem)
 
 
+def format_indel_std(ini_file, indel_realign='indel_realignment'):
+    config = get_config(ini_file)
+    indel_std = config[indel_realignment].values()
+    indel_std = ['-known %s' % i for i in indel_std]
+    indel_std = ' '.join([indel_std])
+    return indel_std
+
+
+def format_bqsr(ini_file, bqsr='bqsr'):
+    config = get_config(ini_file)
+    bqsr_std = config[bqsr]
+    bqsr_std = ['-known %s' % i for i in bqsr_std]
+    bqsr_std = ' '.join([indel_std])
+    return bqsr_std
+
+
 def format_config(ini_file):
     rf_file = get_rc()
     conf = get_config(ini_file)
@@ -27,6 +43,8 @@ def format_config(ini_file):
     tmp = conf['java_tmp_dir']
     java_run = format_java_run(mem, tmp)
     conf['java_run'] = java_run
+    conf['indel_std'] = format_indel_std(ini_file)
+    conf['bqsr_std'] = format_bqsr(ini_file)
     with open(rf_file, 'wb') as f:
         for k, v in conf.items():
             # v = get_abs(v)

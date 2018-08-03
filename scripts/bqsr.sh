@@ -29,10 +29,8 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 	-R $ref_genome \
 	-I $1 \
 	$interval \
-	-nct $cpu_thread_num \
-	-knownSites $data_path/ncbi/dbsnp/All_20150605.vcf.gz \
-	-knownSites ${vcf_path}Mills_and_1000G_gold_standard.indels.${genome_assembly}.vcf \
-	-knownSites ${vcf_path}1000G_phase1.indels.${genome_assembly}.vcf \
+	-nct $threads \
+	$bqsr_std \
 	-o $out_prefix.realn.recal_1.table
 
 
