@@ -12,7 +12,7 @@ def get_rc():
 
 
 def format_java_run(mem='12g', tmp_dir='tmp'):
-    return 'java -Djava.io.tmpdir=%s -Xmx%s' % (tmp_dir, mem)
+    return '"java -Djava.io.tmpdir=%s -Xmx%s"' % (tmp_dir, mem)
 
 
 def format_config(ini_file):
@@ -26,7 +26,7 @@ def format_config(ini_file):
     conf['java_run'] = java_run
     with open(rf_file, 'wb') as f:
         for k, v in conf.items():
-            v = get_abs(v)
+            # v = get_abs(v)
             f.write('%s=%s\n' % (k, v))
 
 
