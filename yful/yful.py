@@ -17,8 +17,9 @@ def format_java_run(mem='12g', tmp_dir='tmp'):
 
 
 def format_indel_std(ini_file, indel_realign='indel_realignment'):
+    indel_realignment
     config = get_config(ini_file)
-    indel_std = config[indel_realignment].values()
+    indel_std = config[indel_realign].values()
     indel_std = ['-known %s' % i for i in indel_std]
     indel_std = ' '.join([indel_std])
     return indel_std
