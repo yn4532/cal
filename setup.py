@@ -16,6 +16,7 @@ scripts.extend(glob.glob('scripts/*.sh'))
 scripts.extend(glob.glob('scripts/*.py'))
 print(scripts)
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
