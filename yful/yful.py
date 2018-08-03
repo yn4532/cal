@@ -42,7 +42,7 @@ def format_config(ini_file):
     print(conf)
     # mem = conf.pop('java_memery')
     # tmp = conf.pop('java_tmp_dir')
-    mem = conf['java_memery']
+    mem = conf['java_memory']
     tmp = conf['java_tmp_dir']
     java_run = format_java_run(mem, tmp)
     conf['java_run'] = java_run
