@@ -27,6 +27,8 @@ def format_config(ini_file):
     with open(rf_file, 'wb') as f:
         for k, v in conf.items():
             # v = get_abs(v)
+            if v.find(' ') != -1:
+                v = '"%s"' % v
             f.write('%s=%s\n' % (k, v))
 
 
