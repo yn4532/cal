@@ -34,10 +34,13 @@ fastp \
 -f $trim5_r1 \
 -t $trim3_r1 \
 -F $trim5_r1 \
--T $trim5_r2 \
+-T $trim3_r2 \
 -q 15 -u 40 \
 -l $min_len \
 -w $threads \
--h $out_prefix.html \
--j $out_prefix.json \
+-h $out_prefix.fastp.html \
+-j $out_prefix.fastp.json \
 -R "$1 and $2 report"
+
+. $cmd_done
+
