@@ -20,7 +20,7 @@ def format_indel_std(ini_file, indel_realign='indel_realignment'):
     config = get_config(ini_file)
     indel_std = config[indel_realign].values()
     indel_std = ['-known %s' % i for i in indel_std]
-    indel_std = ' '.join([indel_std])
+    indel_std = ' '.join(indel_std)
     return indel_std
 
 
@@ -28,7 +28,7 @@ def format_bqsr(ini_file, bqsr='bqsr'):
     config = get_config(ini_file)
     bqsr_std = config[bqsr]
     bqsr_std = ['-known %s' % i for i in bqsr_std]
-    bqsr_std = ' '.join([indel_std])
+    bqsr_std = ' '.join(bqsr_std)
     return bqsr_std
 
 
