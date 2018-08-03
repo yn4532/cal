@@ -35,8 +35,7 @@ $java_run $gatk \
     -o $out_prefix.realn.intervals \
     -log $out_prefix.realn.log \
     -nt $threads \
-    -known ${vcf_path}1000G_phase1.indels.${genome_assembly}.vcf \
-    -known $data_path/gatk/vcf/Mills_and_1000G_gold_standard.indels.${genome_assembly}.vcf
+    $indel_std
 
 realn_interval=$out_prefix.realn.intervals
 
