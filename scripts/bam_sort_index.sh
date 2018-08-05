@@ -20,11 +20,8 @@ if [ $# -lt 1 ]; then info; fi
 . $var
 
 echo samtools sort
-
-default threads 4
-
 samtools 2>&1|grep Version
-samtools sort -@${threads:=4} -T$out_prefix.t -o$out_prefix.sort.bam $1
+samtools sort -@${threads:=2} -T$out_prefix.t -o$out_prefix.sort.bam $1
 
 echo samtools index
 samtools index $out_prefix.sort.bam

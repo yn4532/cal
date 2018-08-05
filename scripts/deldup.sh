@@ -1,24 +1,20 @@
 #!/bin/bash -e
 
 function info() {
-echo Usage: `basename $0` [-d] in.bam
+echo Usage: `basename $0` [-d1] in.bam
 exit 1
 }
 
-while getopts  ":dp:" opts
+while getopts ":dp:1" opt
 do
-        case  $opts  in
-        d)
-			delete=true
-			;;
-		p)
-			out_prefix=$OPTARG
-			;;
-		\?) info;;
-        esac
+    case $opt in
+        d) delete=true;;
+		p) out_prefix=$OPTARG;;
+        1) picard='picard.jar';;
+		?) info;;
+    esac
 done
 shift $(($OPTIND - 1))
-
 
 if [ $# -lt 1 ]; then info; fi
 
@@ -26,9 +22,15 @@ if [ $# -lt 1 ]; then info; fi
 
 test "$delete" = "true" && delete='REMOVE_DUPLICATES=true'
 
-echo;echo;echo picard MarkDuplicates
-$jar_run \
-$picard_path/MarkDuplicates.jar \
+if test -z "$parcard"; then
+    markdup=$picard_path/MarkDuplicates.jar
+else
+    markdup="$picard MarkDuplicates"
+fi
+
+echo;echo;echo $markdup
+$java_run \
+$markdup \
 I=$1 \
 O=$out_prefix.deldup.bam \
 METRICS_FILE=$out_prefix.deldup.metrics.txt \
