@@ -32,6 +32,12 @@ def format_bqsr(ini_file, bqsr='bqsr'):
     return bqsr_std
 
 
+def format_gatk(gatk, gatk_version):
+    if gatk_version == 3:
+        return '%s -T' % gatk
+    return gatk
+
+
 def format_config(ini_file):
     general_label = 'general'
     rf_file = get_rc()
@@ -45,6 +51,10 @@ def format_config(ini_file):
     mem = conf['java_memory']
     tmp = conf['java_tmp_dir']
     java_run = format_java_run(mem, tmp)
+
+    gatk = format_gatk(conf['gatk'], conf['gatk_version'])
+    conf['gatk'] = gatk
+
     conf['java_run'] = java_run
     conf['indel_std'] = format_indel_std(ini_file)
     conf['bqsr_std'] = format_bqsr(ini_file)
