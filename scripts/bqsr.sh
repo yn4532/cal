@@ -37,7 +37,7 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 echo
 echo gatk PrintReads nct $cpu_thread_num recommand nct 4"-"8 mem 4
 java $j_mem -jar $gatk \
-	-T PrintReads \
+	PrintReads \
 	-R $ref_genome \
 	-I $1 \
 	$interval \

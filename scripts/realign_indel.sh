@@ -29,7 +29,7 @@ if [ -n "$interval" ]; then interval="-L $interval"; fi
 
 echo; echo gatk RealignerTargetCreator recommand nt 24 mem 48
 $java_run $gatk \
-    -T RealignerTargetCreator \
+    RealignerTargetCreator \
     -R $ref_genome $interval\
     -I $1 \
     -o $out_prefix.realn.intervals \
