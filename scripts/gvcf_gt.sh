@@ -25,8 +25,8 @@ test -n "$interval" && interval="-L $interval"
 
 echo; echo GenotypeGVCFs
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
+    GenotypeGVCFs \
     -R $ref_genome $interval\
-    -T GenotypeGVCFs \
     --variant $1 \
     -o $out_prefix.gt.vcf \
     -nt 4 \

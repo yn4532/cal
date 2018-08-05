@@ -33,7 +33,16 @@ samtools faidx $1 & # no need because aln2sam will return to based on b37.fa
 
 # :<<noneed
 # if exist a dict file; picard will do nothing.
-java.sh $picard_path/CreateSequenceDictionary.jar \
+
+
+if test -n "$picard_path"; then
+    csd=$picard_path/CreateSequenceDictionary.jar
+fi
+if test -n "$picard"; then
+    csd="$picard CreateSequenceDictionary"
+fi
+
+java.sh $csd \
 REFERENCE=$1 \
 OUTPUT=$1.dict
 

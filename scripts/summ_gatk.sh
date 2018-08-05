@@ -27,7 +27,7 @@ fi
 
 echo;echo;echo gatk summary
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
-   -T DepthOfCoverage \
+   DepthOfCoverage \
    -R $ref_genome \
    -o $out_prefix \
    --omitDepthOutputAtEachBase \

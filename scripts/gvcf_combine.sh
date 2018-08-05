@@ -28,8 +28,8 @@ test -n "$interval" && interval='-L $interval'
 
 echo; echo CombineGVCFs
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
+    CombineGVCFs $interval \
     -R $ref_genome \
-    -T CombineGVCFs $interval \
     --variant $list \
     -o $out_prefix.combine.g.vcf
 

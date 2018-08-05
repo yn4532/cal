@@ -26,8 +26,8 @@ test -n "$interval" && interval='-L $interval'
 
 echo; echo HaplotypeCaller
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
+    HaplotypeCaller \
     -R $ref_genome \
-    -T HaplotypeCaller \
     -I $1 \
     --emitRefConfidence GVCF \
     $interval \

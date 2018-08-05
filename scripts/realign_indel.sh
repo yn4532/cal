@@ -42,7 +42,7 @@ realn_interval=$out_prefix.realn.intervals
 
 echo; echo; echo gatk IndelRealigner recommand sg 4 mem 4
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
-    -T IndelRealigner \
+    IndelRealigner \
     -R $ref_genome $interval\
     -targetIntervals $realn_interval \
     -I $1 \

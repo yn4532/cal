@@ -33,7 +33,7 @@ def format_bqsr(ini_file, bqsr='bqsr'):
 
 
 def format_gatk(gatk, gatk_version):
-    if gatk_version == 3:
+    if int(gatk_version) == 3:
         return '%s -T' % gatk
     return gatk
 

@@ -25,7 +25,7 @@ test -n "$interval" && interval="-L $interval"
 echo
 echo gatk BaseRecalibrator nct $cpu_thread_num recommand nct 8 mem 4
 java.sh -m$java_memory -d$java_tmp_dir $gatk \
-	-T BaseRecalibrator \
+	BaseRecalibrator \
 	-R $ref_genome \
 	-I $1 \
 	$interval \
