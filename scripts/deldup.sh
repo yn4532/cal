@@ -22,7 +22,7 @@ if [ $# -lt 1 ]; then info; fi
 
 test "$delete" = "true" && delete='REMOVE_DUPLICATES=true'
 
-if test -z "$parcard"; then
+if test -z "$picard"; then
     markdup=$picard_path/MarkDuplicates.jar
 else
     markdup="$picard MarkDuplicates"
