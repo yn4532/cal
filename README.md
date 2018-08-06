@@ -40,7 +40,7 @@ virtualenv a_virtual_env
 
 3. 安装程序脚本
 
-pip install git+https://gitee.com/yn4543/cal.git
+pip install git+https://gitee.com/yn4542/cal.git
 
 4. 运行命令
 
