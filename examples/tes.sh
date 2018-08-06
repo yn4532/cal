@@ -1,15 +1,17 @@
 #!/bin/bash -e
 
 function info() {
-    echo Usage: `basename $0` [vs] virtual_name config list
+    echo Usage: `basename $0` [vsc] virtual_name list
     exit 1
 }
 
-while getopts ":pvs" opt
+while getopts ":pvsc:" opt
 do
     case $opt in
         p) out_prefix=$OPTARG;;
         v) virtual=new;;
+        s) package=new;;
+        c) config=$OPTARG;;
         *) info;;
     esac
 done
@@ -26,10 +28,11 @@ if test -n "$virtual"; then
 fi
 
 test -n "$package" && package="pip install $package_name"
+test -n "$config" && config="--config $config"
 
 eval $vritual
 unset PYTHONPATH
 . $1/bin/activate
 eval $package
-yful --config $2 -p$out_prefix $3
+yful $config -p$out_prefix $2
 
