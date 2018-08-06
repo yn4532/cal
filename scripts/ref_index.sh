@@ -44,9 +44,10 @@ if test -n "$picard"; then
     csd="$picard CreateSequenceDictionary"
 fi
 
-fa=`basename $1 .fq`
-fa=`basename $fa .fastq`
+fa=`basename $1 .fa`
+fa=`basename $fa .fasta`
 fa=`dirname $1`/$fa
+echo $fa
 
 java.sh $csd \
 REFERENCE=$1 \
