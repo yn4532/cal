@@ -40,7 +40,7 @@ virtualenv a_virtual_env
 
 3. 安装程序脚本
 
-pip install git+https://gitee.com/yingnn/cal.git
+pip install git+https://gitee.com/yn4543/cal.git
 
 4. 运行命令
 
@@ -54,7 +54,7 @@ yful.cfg 是程序的配置文件，list 中是每行三列的文件，各列分
 
 查看示例文件
 
-git clone git:gitee.com:yingnn/cal.git
+git clone git:gitee.com:yn4532/cal.git
 
 cd cal
 
