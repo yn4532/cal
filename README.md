@@ -1,6 +1,14 @@
 
 # yfull
 
+## 功能
+- fastqc -- 质量控制
+- fastp -- 质量控制，引物切除
+- bwa mem -- 比对
+- bam filter -- 低质量比对过滤
+- bqsr -- 剪辑质量值校正
+- haplotype caller and genotype caller -- 单倍体型和基因型检出
+
 ## 安装
 
 ### 需要的工具
@@ -40,7 +48,7 @@ virtualenv a_virtual_env
 
 3. 安装程序脚本
 
-pip install git+https://gitee.com/yn4542/cal.git
+pip install git+https://github.com/yn4532/cal.git
 
 4. 运行命令
 
@@ -54,7 +62,7 @@ yful.cfg 是程序的配置文件，list 中是每行三列的文件，各列分
 
 查看示例文件
 
-git clone git:gitee.com:yn4532/cal.git
+git clone git@github.com:yn4532/cal.git
 
 cd cal
 
