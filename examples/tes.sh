@@ -27,7 +27,7 @@ if test -n "$virtual"; then
     package="pip install $package_name"
 fi
 
-test -n "$package" && package="pip install $package_name"
+test -n "$package" && package="pip install -U $package_name"
 test -n "$config" && config="--config $config"
 
 eval $vritual
