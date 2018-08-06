@@ -24,14 +24,16 @@ export var=$YFUL_RC
 
 num=`awk 'END{print NR}' $1`
 
+:>$out_prefix.sample_name.list
 for i in `seq $num`; do
     name=`awk -v n=$i 'NR==n{print $1}' $1`
     r1=`awk -v n=$i 'NR==n{print $2}' $1`
     r2=`awk -v n=$i 'NR==n{print $3}' $1`
     echo $name $r1 $r2
     eval mapping_calling.sh -p$out_prefix.$name.$i -n$name -i$interval $r1 $r2
+    echo $PWD/$out_prefix.$name.$i.g.vcf >> $out_prefix.gvcf.list
 done
 
-call_multi.sh -p$out_prefix.all.$num -i$interval .
+call_multi.sh -p$out_prefix.all.$num -i$interval $out_prefix.gvcf.list
 
 set_done

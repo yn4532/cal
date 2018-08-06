@@ -22,7 +22,7 @@ if [ $# -lt 1 ]; then info; fi
 
 
 list=$1
-test -n "$interval" && interval='-L $interval'
+test -n "$interval" && interval="-L $interval"
 
 # CombineGVCFs # run CombineGVCFs on batches of ~200 gVCFs to hierarchically merge them into a single gVCF
 
