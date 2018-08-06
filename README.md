@@ -63,7 +63,7 @@ ls ./examples/yful.cfg ./examples/list
 ## 需要的文件和规定
 ### reference genome
 参考基因组使用 GRCh38，即染色体命名没有前缀 ‘Chr’，使用 1-22，X，Y
-共 24 个 contig，其他弃用，最后加上 rCRS。
+MT 共 25 个 contig，其他弃用。其中 MT id 为 NC_012920.1（即为rCRS？）。
 
 参考基因组建立索引
 
@@ -71,7 +71,14 @@ ref_index.sh ref.fasta
 
 ### Indel realignment standard
 从 gatk 获得的 vcf 文件
-### Base quality score recalibration
+### Base quality score recalibration standard
 从 gatk 获得的 vcf 文件
+
+获取标准文件
+
+download_std.sh &
+
+
+
 
 
