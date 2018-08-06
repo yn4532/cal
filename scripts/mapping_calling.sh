@@ -48,10 +48,10 @@ deldup.sh -p$out_prefix $out_prefix.filter.bam
 samtools flagstat $out_prefix.deldup.bam > $out_prefix.deldup.bamstat.txt
 
 
-realign_indel.sh -p$out_prefix -i$interval $out_prefix.deldup.bam
+# realign_indel.sh -p$out_prefix -i$interval $out_prefix.deldup.bam
 
 
-bqsr.sh -l$bed -p$out_prefix $out_prefix.realn.bam
+bqsr.sh -i$interval -p$out_prefix $out_prefix.deldup.bam
 samtools flagstat $out_prefix.recal.bam > $out_prefix.recal.bamstat.txt
 fastqc.sh -p$out_prefix.realn $out_prefix.recal.bam
 summ_gatk.sh -p$out_prefix.recal $out_prefix.recal.bam $interval

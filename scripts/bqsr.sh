@@ -1,14 +1,14 @@
 #!/bin/bash -e
 
 function info() {
-echo Usage: `basename $0` [-t] [-l in.bed] in.bam
+echo Usage: `basename $0` [-t] [-i in.bed] in.bam
 exit 1
 }
 
-while getopts  ":l:p:t:" opts
+while getopts  ":i:p:t:" opts
 do
         case  $opts  in
-		l) interval=$OPTARG;;
+		i) interval=$OPTARG;;
 		p) out_prefix=$OPTARG;;
 		t) cpu_thread_num=$OPTARG;;
 		*) info;;
@@ -36,12 +36,12 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 
 echo
 echo gatk PrintReads nct $cpu_thread_num recommand nct 4"-"8 mem 4
-java $j_mem -jar $gatk \
+java.sh -m$java_memory -d$java_tmp_dir $gatk \
 	PrintReads \
 	-R $ref_genome \
 	-I $1 \
 	$interval \
-	-nct $cpu_thread_num \
+	-nct $threads \
 	-BQSR $out_prefix.realn.recal_1.table \
 	-o $out_prefix.realn.recal.bam
 
