@@ -43,7 +43,7 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 	$interval \
 	-nct $threads \
 	-BQSR $out_prefix.realn.recal_1.table \
-	-o $out_prefix.realn.recal.bam
+	-o $out_prefix.bqsr.bam
 
 
 . $cmd_done

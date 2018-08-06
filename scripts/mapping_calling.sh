@@ -52,10 +52,10 @@ samtools flagstat $out_prefix.deldup.bam > $out_prefix.deldup.bamstat.txt
 
 
 bqsr.sh -i$interval -p$out_prefix $out_prefix.deldup.bam
-samtools flagstat $out_prefix.recal.bam > $out_prefix.recal.bamstat.txt
-fastqc.sh -p$out_prefix.realn $out_prefix.recal.bam
-summ_gatk.sh -p$out_prefix.recal $out_prefix.recal.bam $interval
+samtools flagstat $out_prefix.bqsr.bam > $out_prefix.recal.bamstat.txt
+fastqc.sh -p$out_prefix.realn $out_prefix.bqsr.bam
+summ_gatk.sh -p$out_prefix.recal $out_prefix.bqsr.bam $interval
 
-hap.sh -p$out_prefix -i$interval $out_prefix.recal.bam
+hap.sh -p$out_prefix -i$interval $out_prefix.bqsr.bam
 
 . $cmd_done
