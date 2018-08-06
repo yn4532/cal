@@ -44,6 +44,18 @@ pip install git+https://gitee.com/yingnn/cal.git
 
 yful --help
 
+yful --config yful.cfg list
+
+yful.cfg 是程序的配置文件，list 中是每行三列的文件，各列分别表示 sample_name path/to/read1.fq path/to/read2.fq，以 tab 分割
+
+查看事例文件
+
+git clone git:gitee.com:yingnn/cal.git
+
+cd cal
+
+ls ./examples/yful.cfg ./examples/list
+
 ## 需要的文件和规定
 ### reference genome
 参考基因组使用 GRCh38，即染色体命名没有前缀 ‘Chr’，使用 1-22，X，Y
