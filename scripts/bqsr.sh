@@ -31,7 +31,7 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 	$interval \
 	-nct $threads \
 	$bqsr_std \
-	-o $out_prefix.realn.recal_1.table
+	-o $out_prefix.bqsr.table
 
 
 echo
@@ -42,7 +42,7 @@ java.sh -m$java_memory -d$java_tmp_dir $gatk \
 	-I $1 \
 	$interval \
 	-nct $threads \
-	-BQSR $out_prefix.realn.recal_1.table \
+	-BQSR $out_prefix.bqsr.table \
 	-o $out_prefix.bqsr.bam
 
 
