@@ -20,7 +20,7 @@ if [ $# -lt 1 ]; then info; fi
 
 . $var
 
-test -n "$interval" && interval='-L $interval'
+test -n "$interval" && interval="-L $interval"
 
 # HaplotypeCaller # its use is not recommended for somatic (cancer) variant discovery. For that purpose, use MuTect2 instead.
 
