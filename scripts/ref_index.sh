@@ -45,7 +45,8 @@ if test -n "$picard"; then
 fi
 
 fa=`basename $1 .fq`
-fa=`basename $1 .fastq`
+fa=`basename $fa .fastq`
+fa=`dirname $1`/$fa
 
 java.sh $csd \
 REFERENCE=$1 \
