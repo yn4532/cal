@@ -36,6 +36,8 @@ virtualenv a_virtual_env
 
 . a_virtual_env/bin/activate
 
+需要注意的是，如果建立了虚拟环境，则每次运行程序时需要保证在虚拟环境下运行，通过 . a_virtual_env/bin/activate 实现。
+
 3. 安装程序脚本
 
 pip install git+https://gitee.com/yingnn/cal.git
@@ -48,7 +50,9 @@ yful --config yful.cfg list
 
 yful.cfg 是程序的配置文件，list 中是每行三列的文件，各列分别表示 sample_name path/to/read1.fq path/to/read2.fq，以 tab 分割
 
-查看事例文件
+需要注意的是 yful.cfg 在第一次运行程序时和每次 yful.cfg 更改后需要经由 --config yful.cfg 使生效。
+
+查看示例文件
 
 git clone git:gitee.com:yingnn/cal.git
 
@@ -60,7 +64,9 @@ ls ./examples/yful.cfg ./examples/list
 ### reference genome
 参考基因组使用 GRCh38，即染色体命名没有前缀 ‘Chr’，使用 1-22，X，Y
 共 24 个 contig，其他弃用，最后加上 rCRS。
+
 参考基因组建立索引
+
 ref_index.sh ref.fasta
 
 ### Indel realignment standard

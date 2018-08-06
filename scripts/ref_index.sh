@@ -17,6 +17,8 @@ shift $(($OPTIND - 1))
 
 if [ $# -lt 1 ]; then info; fi
 
+export YFUL_RC=~/.config/yfulrc
+export var=$YFUL_RC
 . $var
 
 # ref=$1.$2
@@ -42,9 +44,12 @@ if test -n "$picard"; then
     csd="$picard CreateSequenceDictionary"
 fi
 
+fa=`basename $1 .fq`
+fa=`basename $1 .fastq`
+
 java.sh $csd \
 REFERENCE=$1 \
-OUTPUT=$1.dict
+OUTPUT=$fa.dict
 
 # fa_pre=$(basename $1 .fa)
 # fastq_pre=$(basename $1 .fasta)
